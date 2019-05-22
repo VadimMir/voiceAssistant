@@ -1,0 +1,229 @@
+.box-search {
+  display: grid;
+  justify-items: center;
+}
+
+.input-search {
+  background: transparent;
+  color: rgb(0, 0, 0);
+  height: auto;
+  width: 50%;
+  padding: 1%;
+  font-size: 1em;
+  border: none;
+  border-bottom: 5px solid rgba(47, 90, 183, 0.5);
+}
+
+.input-search:focus {
+  border: none;
+  border-bottom: 2px solid rgb(47, 90, 183);
+}
+
+.title {
+  text-align: center;
+  margin: 2%
+}
+
+.column {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(318px, 1fr));
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.card {
+  background-color: rgb(255, 255, 255);
+  margin: 2%;
+  border: 1px solid rgb(214, 167, 10);
+  border-radius: 10px 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.card-image {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin-top: 2%;
+  max-width: 100%;
+  height: auto;
+}
+
+.counter-bloc {
+  width: 100%;
+  justify-items: start;
+  align-items: center;
+}
+
+.row {
+  counter-reset: card-image; /* Инициируем счетчик */
+}
+
+.counter-card {
+  border: 2px solid rgb(235, 59, 15);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 30px;
+  background: rgba(241, 134, 10, 0.5);
+  border-radius: 100%;
+  font-size: 1.3em;
+}
+
+.counter-card:before {
+  counter-increment: card-image; /* Указываем идентификатор счетчика */
+  content: counter(card-image); /* Выводим текст перед содержимым */
+  font-style: italic;
+}
+
+.position-card {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-auto-rows: minmax(auto, 320px);
+  width: auto;
+  height: 320px;
+  margin-bottom: 2%;
+}
+
+.image-card {
+  display: block;
+  width: auto;
+  height: 320px;
+}
+
+.card-content {
+  display: grid;
+  grid-auto-rows: minmax(40px, auto);
+}
+
+.card-name {
+  text-align: center;
+  font-weight: 600;
+  font-style: italic;
+  font-style: oblique;
+}
+
+.info {
+  display: grid;
+  grid-auto-rows: minmax(60px, auto);
+}
+
+.shop-title {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-position {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  justify-items: start;
+  align-items: center;
+
+}
+
+.logo-shop {
+  width: 50px;
+  height: 50px;
+  align-items: center;
+}
+
+.shop-price {
+  border: 1px solid rgb(214, 24, 10);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px;
+  margin-bottom: 2%;
+  padding: 2%;
+}
+
+.btn-del {
+  color: #444444;
+  background: #F3F3F3;
+  border: 1px #DADADA solid;
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 1em;
+  outline: none;
+  margin: 2%;
+}
+
+.btn-del {
+  color: white;
+  background: rgb(221, 48, 17);
+  border: 1px rgb(237, 70, 48) solid;
+  box-shadow: inset 0 1px 0 #80B0FB;
+}
+
+.btn-del:hover {
+  border: 1px rgb(183, 63, 47) solid;
+  box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+  background: rgb(241, 63, 63);
+}
+
+.btn-del:active {
+  box-shadow: inset 0 2px 5px rgb(254, 42, 35);
+}
+
+.btn-line {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.btn-page {
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  color: white;
+  padding: 8% 9%;
+  margin: 7% 8%;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transition: .5s;
+}
+
+.btn-page:hover {
+  background-position: right center;
+}
+
+.module {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.numder-page {
+  font-weight: 700;
+  font-size: 2em;
+  font-style: italic;
+  font-style: oblique;
+}
+
+.page-next {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-prev {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}

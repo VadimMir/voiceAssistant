@@ -1,0 +1,159 @@
+.section {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.bloc-hed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 5%;
+  width: 100%;
+
+}
+
+.title {
+  display: grid;
+  text-transform: uppercase;
+}
+
+.create_account_linc {
+  display: grid;
+  justify-content: end;
+  align-items: center;
+  text-decoration: none;
+  height: 100%;
+  padding-right: 1%;
+  font-size: 1.3em;
+}
+
+.bloc-text {
+  font-size: 1em;
+  margin-bottom: 5%;
+  width: 100%;
+  height: auto;
+}
+
+.entitle {
+  font-weight: 700;
+}
+
+.text {
+  font-size: 1em;
+}
+
+.bloc-button {
+  display: grid;
+  grid-template-columns: 30%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+@media (max-width: 991.98px) {
+  .bloc-button {
+    grid-template-columns: 80%;
+  }
+}
+
+.btn-entrence {
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  position: relative;
+  color: rgb(255, 255, 255);
+  border: 1px solid #3665F3;
+  background-color: #3665F3;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.btn-entrence:before,
+.btn-entrence:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  box-sizing: border-box;
+}
+
+.btn-entrence:before {
+  bottom: 0;
+  left: 0;
+  border-left: 2px solid rgba(10, 6, 70, 0.7);
+  border-top: 2px solid rgb(10, 6, 70, 0.7);
+  transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
+}
+
+.btn-entrence:after {
+  top: 0;
+  right: 0;
+  border-right: 2px solid rgb(10, 6, 70, 0.7);
+  border-bottom: 2px solid rgb(10, 6, 70, 0.7);
+  transition: 0s ease opacity .4s, .2s ease width, .2s ease height .2s;
+}
+
+.btn-entrence:hover:before,
+.btn-entrence:hover:after {
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+}
+
+.btn-entrence:hover:before {
+  transition: 0s ease opacity 0s, .2s ease height, .2s ease width .2s;
+}
+
+.btn-entrence:hover:after {
+  transition: 0s ease opacity .4s, .2s ease height .4s, .2s ease width .6s;
+}
+
+.btn-entrence:hover {
+  background: #121258;
+}
+
+.btn-fb {
+  border: 1px solid #10299C;
+  background-color: #10299C;
+}
+
+.btn-fb:hover {
+  background: #4267B2;
+}
+
+.btn-g {
+  border: 1px solid #10299C;
+  color: rgb(12, 12, 12);
+  background: rgba(254, 255, 255, 0.925);
+}
+
+.btn-g:hover {
+  background: rgba(204, 219, 218, 0.8);
+}
+
+.bloc-futer-text {
+  text-align: center;
+}
+
+.checkbox {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1%;
+}
+
+.lasr_text {
+  font-size: 1em;
+}
+
+.hr {
+  margin: 2%
+}
+
+.txt {
+  margin: 1%;
+}

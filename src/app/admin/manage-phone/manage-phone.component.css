@@ -1,0 +1,242 @@
+.section {
+  margin-top: 1%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+@media (max-width: 991.98px) {
+  .bloc {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 98%;
+  }
+}
+
+.phone-img {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgba(92, 94, 218, 0.63);
+  border-top: none;
+  border-bottom: none;
+  border-radius: 30px/90px;
+  margin: 2%;
+  height: auto;
+  padding: 2%;
+
+}
+
+.slider {
+  width: 95%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.slider__inner {
+  display: grid;
+  justify-content: center;
+  margin: 2%;
+}
+
+.slider__contents {
+  width: 150px;
+  height: 250px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.slider__contents img {
+  display: block;
+  max-width: 150px;
+  max-height: 200px;
+
+}
+
+.icon {
+  margin: 2%;
+  padding: 2%;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  color: rgb(218, 218, 218);
+}
+
+.btn-delete-img {
+  background: rgba(255, 0, 0);
+  border: 1px rgb(167, 2, 2) solid;
+  border-radius: 2px;
+  font-size: 1.3em;
+  outline: none;
+  margin: 2%;
+}
+
+.btn-delete-img:hover {
+  border: 1px rgb(183, 47, 47) solid;
+  box-shadow: 0 1px 1px rgb(219, 1, 1), inset 0 1px 0 #5A94F1;
+  background: rgb(241, 63, 63);
+}
+
+.btn-delete-img:active {
+  box-shadow: inset 0 2px 5px rgb(254, 35, 35);
+}
+
+.bloc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: auto;
+  margin: 2%;
+  padding: 2%;
+}
+
+.form-group {
+  display: grid;
+  width: 100%;
+}
+
+.form-position {
+  display: grid;
+  grid-template-columns: 20% 60%;
+  align-items: center;
+  margin-left: 2%;
+}
+
+.form-control {
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,
+  box-shadow .15s ease-in-out;
+  margin: 1%;
+}
+
+.form-control:focus {
+  color: rgb(71, 78, 85);
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(124, 187, 255);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+@-webkit-keyframes check {
+  50% {
+    outline-color: #333;
+    box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
+  }
+  100% {
+    outline-color: #333;
+    box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+  }
+}
+
+@keyframes check {
+  50% {
+    outline-color: #333;
+    box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
+  }
+  100% {
+    outline-color: #333;
+    box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+  }
+}
+
+.btn {
+  color: #444444;
+  background: rgb(255, 0, 0);
+  border: 1px #DADADA solid;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 1em;
+  outline: none;
+  margin-top: 2%;
+}
+
+.btn-primary {
+  color: white;
+  background: #4C8FFB;
+  border: 1px #3079ED solid;
+  box-shadow: inset 0 1px 0 #80B0FB;
+  width: 50%;
+}
+
+.btn-primary:hover {
+  border: 1px #2F5BB7 solid;
+  box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+  background: #3F83F1;
+}
+
+.btn-primary:active {
+  box-shadow: inset 0 2px 5px #2370FE;
+}
+
+.btn-primary:disabled {
+  box-shadow: inset 0 2px 5px #2370FE;
+  background: rgba(6, 13, 26, 0.808);
+}
+
+.upload-img {
+  width: 90%;
+  height: 300px;
+  display: grid;
+  justify-self: center;
+  align-self: center;
+}
+
+.upload-img img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.inputfile {
+  width: 50%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.btn-change {
+  background: rgb(0, 255, 64);
+  border: 1px rgb(2, 167, 16) solid;
+  border-radius: 2px;
+  font-size: 1em;
+  outline: none;
+  margin-left: 2%;
+  color: rgb(24, 24, 24);
+}
+
+.btn-change:hover {
+  border: 1px rgb(47, 183, 77) solid;
+  box-shadow: 0 1px 1px rgb(1, 219, 74), inset 0 1px 0 #5A94F1;
+  background: rgb(63, 241, 116);
+}
+
+.btn-change:active {
+  box-shadow: inset 0 2px 5px rgb(35, 254, 72);
+}
+
+.btn-delete {
+  background: rgba(255, 0, 0);
+  border: 1px rgb(167, 2, 2) solid;
+  border-radius: 2px;
+  font-size: 1em;
+  outline: none;
+  margin-left: 2%;
+  color: chartreuse;
+}
+
+.btn-delete:hover {
+  border: 1px rgb(183, 47, 47) solid;
+  box-shadow: 0 1px 1px rgb(219, 1, 1), inset 0 1px 0 #5A94F1;
+  background: rgb(241, 63, 63);
+}
+
+.btn-delete:active {
+  box-shadow: inset 0 2px 5px rgb(254, 35, 35);
+}

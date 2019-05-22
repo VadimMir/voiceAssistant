@@ -1,0 +1,94 @@
+
+* {
+  box-sizing: border-box;
+}
+
+$wetasphalt: #34495e;
+$belizehole: #2980b9;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.accordion {
+  position: relative;
+  width: 98%;
+  margin-top: 2%;
+  margin-left: 1%;
+
+  .trigger {
+      #checkbox-2 {
+          display: none;
+
+          &:checked + label {
+              background-color: slategray;
+
+              i {
+
+                  &:before {
+                      transform: translate(5px,8px) rotate(45deg);
+                  }
+
+                  &:after {
+                      transform: translate(-5px,8px) rotate(-45deg);
+                  }
+              }
+          }
+      }
+
+      .checkbox {
+          position: relative;
+          display: block;
+          width: 100%;
+          margin: 0;
+          padding: 20px;
+          color: white;
+          cursor: pointer;
+          background-color: darken(slategray,20%);
+
+          i {
+              position: absolute;
+              display: inline-block;
+              width: 20px;
+              height: 20px;
+              right: 20px;
+              //float: right;
+
+              &:before,
+              &:after {
+                  position: absolute;
+                  content: '';
+                  width: 16px;
+                  height: 3px;
+                  background-color: white;
+                  transition: transform 250ms ease;
+              }
+
+              &:before {
+                  transform: translate(-5px,8px) rotate(45deg);
+              }
+
+              &:after {
+                  transform: translate(5px,8px) rotate(-45deg);
+              }
+          }
+      }
+
+      .content {
+          position: relative;
+          max-height: 1px;
+          padding: 0;
+          overflow-y: scroll;
+          font-size: 14px;
+          line-height: 1.5;
+          background-color: white;
+          transition: max-height 500ms ease-in-out;
+      }
+  }
+}
+
+#checkbox-2:checked ~ .content {
+  max-height: 350px;
+  transition: max-height 500ms ease-in-out;
+}

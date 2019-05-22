@@ -1,0 +1,42 @@
+.admin-sidebar {
+  width: 100%;
+  background-color: rgb(200, 214, 221);
+  border-top: 1px solid rgb(255, 165, 0);
+  border-bottom: 1px solid rgb(255, 165, 0);
+  color: rgb(0, 0, 0);
+  height: auto;
+}
+
+.main-list {
+  margin: 1%;
+  padding: 1%;
+}
+
+.main-list li {
+  list-style-type: none;
+  display: inline;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main-list li a {
+  color: rgba(24, 49, 73, 0.9);
+  text-decoration: none;
+  padding: 8px 35px 8px 15px;
+  font-size: 18px;
+  transition: color .33s ease;
+}
+
+.main-list > li.active > a {
+  color: #398bf7;
+}
+
+.main-list li a:hover {
+  color: #398bf7;
+}
+
+@media (max-width: 769px) {
+  .admin-sidebar {
+    display: none;
+  }
+}

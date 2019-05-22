@@ -1,0 +1,75 @@
+﻿<app-heder></app-heder>
+<section class="section">
+  <div class="voic" id="login"></div>
+  <div>
+    <div class="bloc-txt">
+      <h1 class="title">
+        Ласкаво просимо
+      </h1>
+      <p class="title-txt">
+        Увійти в голосовий помічник або
+        <a [routerLink]="'/register'">Створити аккаунт</a>
+      </p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email"></label>
+        <input class="form-control" type="text" value placeholder="Електронна пошта або ім'я користувача"
+               formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">
+            <p>
+              Поле Email не нзаповнене
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password"></label>
+        <input class="form-control" type="password" value placeholder="Пароль"
+               formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">
+            <p>
+              Поле Пароль не заповнене
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="bloc-button">
+        <button class="btn-login" [disabled]="loading">
+          <p>
+            Увійти
+          </p>
+        </button>
+        <img *ngIf="loading"
+             src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==">
+        <a [routerLink]="'/home'"></a>
+      </div>
+    </form>
+    <div class="bloc-futer-text">
+      <p class="txt">
+        <a class="a-txt" href="#">
+          Введіть тимчасовий пароль
+        </a>
+      </p>
+      <p class="txt">
+        <a class="a-txt" href="#">
+          Скинути пароль
+        </a>
+      </p>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="staySignedIn" checked> Запамятати мене
+        </label>
+      </div>
+      <p class="txt">Використовуєте загальнодоступні чи спільні пристрої?
+        Зніміть прапорець, щоб захистити свій обліковий запис.
+        <a href="#">
+          Більше інформації
+        </a>
+      </p>
+    </div>
+  </div>
+</section>

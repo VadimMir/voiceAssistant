@@ -1,0 +1,20 @@
+<app-heder></app-heder>
+<div class="voic" id="brand"></div>
+
+<h2 class="title">Бренди</h2>
+
+<div class="row">
+  <div class="column">
+    <div class="card" *ngFor="let brand of brands" (click)="onSelect(brand.nameBrand)">
+      <div class="card-image">
+        <div class="counter-position">
+          <div class="counter-card"></div>
+        </div>
+        <img class="card-img" src="{{ brand.urlLogo }}">
+        <div class="card-content">
+          <p class="text">{{ brand.nameBrand }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

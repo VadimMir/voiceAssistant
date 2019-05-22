@@ -1,0 +1,95 @@
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+</script>
+<svg aria-hidden="true" style="position:absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <symbol id="icon-bin" viewBox="0 0 32 32">
+    <title>bin</title>
+    <path
+      d="M4 10v20c0 1.1 0.9 2 2 2h18c1.1 0 2-0.9 2-2v-20h-22zM10 28h-2v-14h2v14zM14 28h-2v-14h2v14zM18 28h-2v-14h2v14zM22 28h-2v-14h2v14z"></path>
+    <path
+      d="M26.5 4h-6.5v-2.5c0-0.825-0.675-1.5-1.5-1.5h-7c-0.825 0-1.5 0.675-1.5 1.5v2.5h-6.5c-0.825 0-1.5 0.675-1.5 1.5v2.5h26v-2.5c0-0.825-0.675-1.5-1.5-1.5zM18 4h-6v-1.975h6v1.975z"></path>
+  </symbol>
+</svg>
+
+<section class="section">
+  <div>
+    <h1>Смартфон {{ phones?.name }} </h1>
+  </div>
+  <div class="phone-img">
+    <div class="slider">
+      <div class="slider__inner" *ngFor="let img of phones?.imagePhone">
+        <div class="slider__contents">
+          <img src="{{ img }}" alt="Смартфон">
+        </div>
+        <button class="btn btn-delete-img" (click)="deleteImg(phones._id, phones.nameShop, img)">
+          <svg class="icon icon-bin">
+            <use xlink:href="#icon-bin"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="bloc phone-img">
+    <div>
+      <div class="upload-wrap">
+        <div class="container">
+          <div class="row">
+            <form #imageForm=ngForm (ngSubmit)="uploadFileToActivity(Image)">
+              <div class="upload-img">
+                <img [src]="imageUrl">
+              </div>
+              <div class="form-group upload-form">
+                <input type="file"
+                       id="file"
+                       #Image
+                       data-multiple-caption="{count} files selected"
+                       multiple
+                       class="inputfile"
+                       accept="image/*"
+                       (change)="handleFileInput($event.target.files)">
+                <label for="file" id="labelUpload">
+                  <span>Оберіть файл для завантаження</span>
+                </label>
+                <button type="submit" class="btn btn-primary"
+                        [disabled]="Image.value == '' || !imageForm.valid">
+                  Завантажити фото
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-position">
+        <label> Назва </label>
+        <input class="form-control" type="text" [(ngModel)]="phones.name"/>
+      </div>
+      <div class="form-position">
+        <label> Назва для пошуку </label>
+        <input class="form-control" type="text" [(ngModel)]="phones.nameSearch"/>
+      </div>
+      <div class="form-position">
+        <label> Модель </label>
+        <input class="form-control" type="text" [(ngModel)]="phones.model"/>
+      </div>
+      <div class="form-position">
+        <label> Бренд </label>
+        <input class="form-control" type="text" [(ngModel)]="phones.brand"/>
+      </div>
+      <div>
+        <button class="btn btn-change" (click)="updatePhone()">
+          Редагувати дані
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-delete" (click)="deletePhone(phones._id, phones.nameShop)">
+      Видалити телефон
+    </button>
+  </div>
+</section>

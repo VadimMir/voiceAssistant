@@ -1,0 +1,137 @@
+﻿<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<svg aria-hidden="true" style="position:absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <symbol id="icon-view-hide" viewBox="0 0 20 20">
+    <title>view-hide</title>
+    <path
+      d="M12.81 4.36l-1.77 1.78c-0.311-0.087-0.668-0.137-1.037-0.137-2.209 0-4 1.791-4 4 0 0.369 0.050 0.726 0.143 1.065l-0.007-0.028-2.76 2.75c-1.32-1-2.42-2.3-3.18-3.79 1.86-3.591 5.548-6.003 9.799-6.003 0.996 0 1.96 0.132 2.878 0.38l-0.077-0.018zM16.61 6.21c1.33 1 2.43 2.3 3.2 3.79-1.859 3.594-5.549 6.007-9.802 6.007-1.002 0-1.973-0.134-2.895-0.385l0.077 0.018 1.77-1.78c0.311 0.087 0.668 0.137 1.037 0.137 2.209 0 4-1.791 4-4 0-0.369-0.050-0.726-0.143-1.065l0.007 0.028 2.76-2.75zM16.36 2.22l1.42 1.42-14.14 14.14-1.42-1.42 14.14-14.14z"></path>
+  </symbol>
+  <symbol id="icon-view-show" viewBox="0 0 20 20">
+    <title>view-show</title>
+    <path
+      d="M0.2 10c1.86-3.592 5.548-6.004 9.8-6.004s7.94 2.412 9.771 5.943l0.029 0.061c-1.86 3.592-5.548 6.004-9.8 6.004s-7.94-2.412-9.771-5.943l-0.029-0.061zM10 14c2.209 0 4-1.791 4-4s-1.791-4-4-4v0c-2.209 0-4 1.791-4 4s1.791 4 4 4v0zM10 12c-1.105 0-2-0.895-2-2s0.895-2 2-2v0c1.105 0 2 0.895 2 2s-0.895 2-2 2v0z"></path>
+  </symbol>
+</svg>
+
+<app-heder></app-heder>
+<section class="section">
+  <div class="voic" id="register"></div>
+  <div class="bloc-hed">
+    <div>
+      <h1 class="title">
+        Voice Helper
+      </h1>
+    </div>
+    <div>
+      <p class="create_account_linc">Ви маєте аккаунт?<a [routerLink]="'/input'">Увійти</a></p>
+    </div>
+  </div>
+  <div class="bloc-text">
+    <h2 class="entitle">
+      Створити аккаунт
+    </h2>
+  </div>
+  <div class="bloc-button">
+    <button class="btn-register btn-fb">
+      <p>
+        Увійти з допомогою Facebook
+      </p>
+    </button>
+    <button class="btn-register btn-g">
+      <p>
+        Увійти з допомогою Google
+      </p>
+    </button>
+  </div>
+  <div class="hr-line">
+    <hr class="hr">
+    <p class="p-senter">або</p>
+    <hr class="hr">
+  </div>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name"></label>
+      <input class="form-control" type="text" value placeholder="Імʼя"
+             id="userName" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">
+          <p>
+            Поле Імʼя не заповнене
+          </p>
+        </div>
+      </div>
+
+      <label for="email"></label>
+      <input id="userEmail" class="form-control" type="text" value placeholder="Email"
+             formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">
+          <p>
+            Поле Email не нзаповнене
+          </p>
+        </div>
+        <div *ngIf="f.email.errors.email">
+          <p>
+            Поле Email введено некоректно
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password"></label>
+      <input class="form-control" [type]="hide ? 'password' : 'text'" value placeholder="Пароль"
+             formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+      <button class="btn-show" (click)="btnVisible()" (click)="hide = !hide">
+        <svg *ngIf="!visible" class="icon icon-view-show">
+          <use xlink:href="#icon-view-show"></use>
+        </svg>
+        <svg *ngIf="visible" class="icon icon-view-hide">
+          <use xlink:href="#icon-view-hide"></use>
+        </svg>
+      </button>
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">
+          <p>
+            Поле Пароль не заповнене
+          </p>
+        </div>
+        <div *ngIf="f.password.errors.minlength">
+          <p>
+            Пароль має бути не менше 6 символів
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="bloc-futer-text">
+      <p class="last_text">
+        До реєстрації, ви погоджуєтеся, що ви прочитали і прийняли нашу
+        <a href="#">
+          угоду користувача
+        </a>
+        , Вам принаймні 18 років, і Ви погоджуєтеся з нашою
+        <a href="#">
+          політикою конфіденційності
+        </a>
+        та отримання маркетингових повідомлень від нас.
+      </p>
+    </div>
+
+
+    <div class="bloc-button">
+      <button [disabled]="" class="btn-register">
+        <p>
+          Створити обліковий запис
+        </p>
+      </button>
+      <img *ngIf="loading"
+           src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+      <a [routerLink]="['/']" class="btn-register btn-link">Відмінити</a>
+    </div>
+  </form>
+  <p class="txt"><a href="#">Потрібна допомога?</a></p>
+</section>

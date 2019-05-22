@@ -1,0 +1,64 @@
+<h2 class="title">Смартфони</h2>
+<div class="box-search">
+  <input class="input-search" type="text" #dataNew (input)="inputBrand(dataNew.value)" placeholder="Пошук"/>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div class="card" *ngFor="let phone of phones">
+      <div class="card-image" id="{{ phone._id }}" (click)="onSelect(phone._id)">
+        <div class="counter-bloc">
+          <div class="counter-card"></div>
+        </div>
+        <div class="position-card">
+          <img class="image-card" src="{{ phone.imagePhone[0] }}">
+        </div>
+      </div>
+      <div class="card-content" (click)="onSelect(phone._id)">
+        <p class="card-name">
+          {{ phone.nameSearch }}
+        </p>
+      </div>
+      <div class="shop-title" (click)="onSelect(phone._id)">
+        <h3>Магазини з даним товаром</h3>
+        <div class="logo-position">
+          <div class="logo-shop" *ngFor="let imgShop of phone.logoShopsAllShops">
+            <img src="{{ imgShop }}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="shop-price" (click)="onSelect(phone._id)">
+        <div>
+          <h3>
+            Середня ціна {{ phone.middlePrice }}
+          </h3>
+        </div>
+      </div>
+      <div>
+        <button class="btn-del" (click)="deletePhone(phone._id, phone.nameShop)">
+          Видалити телефон
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="btn-line">
+  <div class="page-prev">
+    <button class="btn-page prev" (click)="prev()">
+      <p>
+        Попередня
+      </p>
+    </button>
+  </div>
+  <div class="module">
+    <p class="numder-page">{{count}} ... {{ num }}</p>
+  </div>
+  <div class="page-next">
+    <button class="btn-page next" (click)="next()">
+      <p>
+        Наступна
+      </p>
+    </button>
+  </div>
+</div>

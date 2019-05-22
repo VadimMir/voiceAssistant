@@ -1,0 +1,135 @@
+<app-heder></app-heder>
+<section class="section">
+  <div class="voic" id="product"></div>
+  <div>
+    <h1>Смартфон {{ phones?.nameSearch }} </h1>
+  </div>
+  <div class="bloc">
+    <div class="phone-img">
+      <div class="slider">
+        <input class="slider__nav" id="fotoFirst" type="radio" name="slider" title="slide1" checked="checked"/>
+        <input class="slider__nav" id="fotoSecond" type="radio" name="slider" title="slide2"/>
+        <input class="slider__nav" id="fotoThird" type="radio" name="slider" title="slide3"/>
+        <input class="slider__nav" id="fotoFourth" type="radio" name="slider" title="slide4"/>
+        <div class="slider__inner">
+          <div class="slider__contents"><i></i>
+            <img src="{{ phones?.imagePhone [0] }}" alt="Смартфон">
+          </div>
+          <div class="slider__contents"><i></i>
+            <img src="{{ phones?.imagePhone [1] }}" alt="Смартфон">
+          </div>
+          <div class="slider__contents"><i></i>
+            <img src="{{ phones?.imagePhone [2] }}" alt="Смартфон">
+          </div>
+          <div class="slider__contents"><i></i>
+            <img src="{{ phones?.imagePhone [3] }}" alt="Смартфон">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="price-info">
+      <div class="price">
+        <p class="price-txt">
+          Середня ціна {{ priseNew | number }}
+        </p>
+      </div>
+      <div class="info" *ngFor="let info of infoNew | slice: 2: 5">
+        <div class="td-info">
+          <p>
+            {{ info[0] }}
+          </p>
+        </div>
+        <div class="td-info">
+          <p>
+            {{ info[1] }}
+          </p>
+        </div>
+      </div>
+      <div class="shops-info">
+        <h2>
+          Інші магазини зі схожим товаром
+        </h2>
+        <div class="shops-position">
+          <div class="main-shops" *ngFor='let mainShops of phonesShops | paginate: { itemsPerPage: 6, currentPage: p }'>
+            <a class="link-shops" href="{{mainShops.url}}">
+              <div class="logo-position">
+                <div class="main-shops-logo">
+                  <img src="{{mainShops.logo}}" alt="shop logo">
+                </div>
+              </div>
+              <div class="main-shops-name">
+                <p>
+                  {{mainShops.name}}
+                </p>
+              </div>
+              <div class="main-shops-price">
+                <p class="price-p">
+                  {{mainShops.price | number }}
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="btn dtn-shops-all">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+
+
+        <div class="all-shops">
+          <button class="btn-shop scrapeAllShops" (click)="btnShop()">
+            <p>
+              Більше магазинів з даним товаром
+            </p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bloc-more-info">
+    <div class="accordion">
+      <div class="trigger">
+        <input type="checkbox" id="checkbox-2" name="checkbox-2"/>
+        <label for="checkbox-2" class="checkbox">
+          <p>
+            Показати більше характеристик <i></i>
+          </p>
+        </label>
+        <div class="content">
+          <div>
+            <h2 class="title">Основна характеристика {{ phones?.nameSearch }} </h2>
+            <div class="info" *ngFor="let info of infoNew | slice: 1: end">
+              <div class="td-info">
+                <p>
+                  {{ info[0] }}
+                </p>
+              </div>
+              <div class="td-info">
+                <p>
+                  {{ info[1] }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="shop-position" *ngFor='let blocShop of scrapeShops'>
+        <a class="link-shops all-link " href="{{ blocShop[2] }}">
+          <div>
+            <p class="name-shop main-shops-logo">
+              {{ blocShop[1] }}
+            </p>
+          </div>
+          <div class="name-product-shop main-shops-name">
+            {{ phones.nameSearch }}
+          </div>
+          <div class="shop-price main-shops-price">
+            {{ blocShop[0] | number }}
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

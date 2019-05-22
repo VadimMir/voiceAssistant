@@ -1,0 +1,44 @@
+<app-heder></app-heder>
+<section class="section">
+  <div class="voic" id="input-voice"></div>
+  <div class="bloc-hed">
+    <div class="bloc-text">
+      <h2 class="entitle">
+        Привіт
+      </h2>
+      <p class="text">
+        Ви можете скористатися електронною поштою або
+        іменем користувача або скористатися соціальним обліковим записом.
+      </p>
+    </div>
+    <div class="create-account">
+      <a class="create_account_linc" [routerLink]="'/register'">Створити аккаунт</a>
+    </div>
+  </div>
+  <div class="bloc-button">
+    <button class="btn-entrence" (click)="openLogin()">
+      <p>
+        Увійти
+      </p>
+    </button>
+    <button class="btn-entrence btn-fb">
+      <p>
+        Увійти з допомогою Facebook
+      </p>
+    </button>
+    <button class="btn-entrence btn-g">
+      <p>
+        Увійти з допомогою Google
+      </p>
+    </button>
+  </div>
+  <div class="bloc-futer-text">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="staySignedIn" checked> Запамятати мене
+      </label>
+    </div>
+    <p class="last_text">Використовуєте загальнодоступні чи спільні пристрої?
+      Зніміть прапорець, щоб захистити свій обліковий запис.<a href="#">Більше інформації</a></p>
+  </div>
+</section>

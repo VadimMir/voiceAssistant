@@ -1,0 +1,19 @@
+<aside class="admin-sidebar">
+  <ul class="main-list">
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a [routerLink]="['/admin']">
+        Користувачі
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/admin/manage-phones']">
+        Всі телефони
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/']">
+        На головну
+      </a>
+    </li>
+  </ul>
+</aside>

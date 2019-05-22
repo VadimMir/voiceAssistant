@@ -1,0 +1,109 @@
+<app-heder (searchValue)="searchInput($event)"></app-heder>
+<div class="voic" id="phones"></div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+</script>
+<svg aria-hidden="true" style="position:absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <symbol id="icon-spinner11" viewBox="0 0 32 32">
+    <title>spinner11</title>
+    <path
+      d="M32 12h-12l4.485-4.485c-2.267-2.266-5.28-3.515-8.485-3.515s-6.219 1.248-8.485 3.515c-2.266 2.267-3.515 5.28-3.515 8.485s1.248 6.219 3.515 8.485c2.267 2.266 5.28 3.515 8.485 3.515s6.219-1.248 8.485-3.515c0.189-0.189 0.371-0.384 0.546-0.583l3.010 2.634c-2.933 3.349-7.239 5.464-12.041 5.464-8.837 0-16-7.163-16-16s7.163-16 16-16c4.418 0 8.418 1.791 11.313 4.687l4.687-4.687v12z"></path>
+  </symbol>
+</svg>
+
+<h2 class="title">Смартфони</h2>
+
+
+<div class="filter">
+  <div class="group-prise">
+    <label for="minPrice"></label>
+    <input class="form-control" type="search" #minPrise (input)="minInput(minPrise.value)" value
+           placeholder="Miн. вартість" id="minPrice">
+    <label for="maxPrice"></label>
+    <input class="form-control" type="search" #maxPrise (input)="maxInput(maxPrise.value)" value
+           placeholder="Макс. вартість" id="maxPrice">
+  </div>
+  <div class="group-prise">
+    <button class="btn-cost cheap" (click)="btnCheap()">
+      <p>
+        Спочатку дешеві
+      </p>
+    </button>
+    <button class="btn-cost expensive" (click)="btnExpensive()">
+      <p>
+        Спочатку дорогі
+      </p>
+    </button>
+    <button class="btn-cost clear" (click)="btnClear()">
+      <svg class="icon icon-spinner11">
+        <use xlink:href="#icon-spinner11"></use>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div class="card" *ngFor="let phone of phones" (click)="onSelect(phone._id)">
+      <div class="card-image" id="{{ phone._id }}">
+        <div class="counter-bloc">
+          <div class="counter-card"></div>
+        </div>
+        <div class="position-card">
+          <img class="image-card" src="{{ phone.imagePhone[0] }}">
+        </div>
+      </div>
+      <div class="card-content">
+        <p class="card-name">
+          {{ phone.nameSearch }}
+        </p>
+      </div>
+      <div class="info">
+        <div>
+          <p *ngFor="let inf of phone.info | slice: 0: 3">
+            {{ inf }}
+          </p>
+        </div>
+      </div>
+      <div class="shop-title">
+        <h3>Магазини з даним товаром</h3>
+        <div class="logo-position">
+          <div class="logo-shop" *ngFor="let imgShop of phone.logoShopsAllShops">
+            <img src="{{ imgShop }}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="shop-price">
+        <div>
+          <h3>
+            Середня ціна {{ phone.middlePrice }}
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="btn-line">
+  <div class="page-prev">
+    <button class="btn-page prev" (click)="prev()">
+      <p>
+        Попередня
+      </p>
+    </button>
+  </div>
+  <div class="module">
+    <p class="numder-page">{{count}} ... {{ num }}</p>
+  </div>
+  <div class="page-next">
+    <button class="btn-page next" (click)="next()">
+      <p>
+        Наступна
+      </p>
+    </button>
+  </div>
+</div>

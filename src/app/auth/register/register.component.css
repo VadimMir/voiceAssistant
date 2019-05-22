@@ -1,0 +1,248 @@
+.section {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.icon {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.bloc-hed {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-bottom: 5%;
+}
+
+.title {
+  display: grid;
+  text-transform: uppercase;
+}
+
+.create_account_linc {
+  display: grid;
+  justify-content: end;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.3em;
+  height: 100%;
+}
+
+.bloc-text {
+  font-size: 1em;
+  margin-bottom: 5%;
+}
+
+.entitle {
+  display: grid;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.bloc-button {
+  display: grid;
+  grid-template-columns: 30%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+@media (max-width: 991.98px) {
+  .bloc-button {
+    grid-template-columns: 80%;
+  }
+}
+
+.btn-register {
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  position: relative;
+  color: rgb(255, 255, 255);
+  border: 1px solid #3665F3;
+  background-color: #3665F3;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.btn-register:before,
+.btn-register:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  box-sizing: border-box;
+}
+
+.btn-register:before {
+  bottom: 0;
+  left: 0;
+  border-left: 2px solid rgba(10, 6, 70, 0.7);
+  border-top: 2px solid rgb(10, 6, 70, 0.7);
+  transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
+}
+
+.btn-register:after {
+  top: 0;
+  right: 0;
+  border-right: 2px solid rgb(10, 6, 70, 0.7);
+  border-bottom: 2px solid rgb(10, 6, 70, 0.7);
+  transition: 0s ease opacity .4s, .2s ease width, .2s ease height .2s;
+}
+
+.btn-register:hover:before,
+.btn-register:hover:after {
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+}
+
+.btn-register:hover:before {
+  transition: 0s ease opacity 0s, .2s ease height, .2s ease width .2s;
+}
+
+.btn-register:hover:after {
+  transition: 0s ease opacity .4s, .2s ease height .4s, .2s ease width .6s;
+}
+
+.btn-register:hover {
+  background: #121258;
+}
+
+.btn-fb {
+  border: 1px solid #10299C;
+  background-color: #10299C;
+}
+
+.btn-fb:hover {
+  background: #4267B2;
+}
+
+.btn-g {
+  border: 1px solid #10299C;
+  color: rgb(12, 12, 12);
+  background: rgba(254, 255, 255, 0.925);
+}
+
+.btn-g:hover {
+  background: rgba(204, 219, 218, 0.8);
+}
+
+.btn-link {
+  text-align: center;
+  border: 1px solid #10299C;
+  color: rgb(12, 12, 12);
+  background: rgba(254, 255, 255, 0.925);
+}
+
+.btn-link:hover {
+  background: rgba(204, 219, 218, 0.8);
+}
+
+.hr-line {
+  display: grid;
+  grid-template-columns: 44% 10% 44%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.p-senter {
+  display: grid;
+  justify-content: space-around;
+}
+
+.hr {
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.btn-show {
+  width: 3.5em;
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
+
+.btn-show {
+  color: #444444;
+  background: #F3F3F3;
+  border: 1px #DADADA solid;
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 1em;
+  outline: none;
+}
+
+.btn-show {
+  color: white;
+  background: rgb(251, 76, 76);
+  border: 1px rgb(237, 48, 48) solid;
+  box-shadow: inset 0 1px 0 #80B0FB;
+}
+
+.btn-show:hover {
+  border: 1px rgb(183, 47, 47) solid;
+  box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+  background: rgb(241, 63, 63);
+}
+
+.btn-show:active {
+  box-shadow: inset 0 2px 5px rgb(254, 35, 35);
+}
+
+.invalid-feedback {
+  border: 1px solid #10299C;
+  width: 50%;
+  margin: 1%
+}
+
+.form-group {
+  display: grid;
+  width: 100%;
+}
+
+.form-control {
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,
+  box-shadow .15s ease-in-out;
+  margin: 1%;
+}
+
+.form-control:focus {
+  color: rgb(71, 78, 85);
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(124, 187, 255);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+.bloc-futer-text {
+  text-align: center;
+}
+
+.lasr_text {
+  font-size: 1em;
+}
+
+.txt {
+  text-align: center;
+  font-size: 1em;
+}

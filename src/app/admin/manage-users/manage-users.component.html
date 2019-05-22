@@ -1,0 +1,111 @@
+<h2 class="title">
+  Користувачі
+</h2>
+<div>
+  <div class="user" *ngFor="let user of users">
+    <div class="btn-bloc">
+      <button class="btn btn-del" (click)="deleteUser(user._id)">
+        Видалити користувача
+      </button>
+    </div>
+    <div>
+      <ul>
+        <li class="list">
+          {{user?.name}}
+        </li>
+      </ul>
+    </div>
+    <div class="btn-bloc">
+      <button class="btn btn-update" (click)="usersUpdate(user)">
+        Редагувати користувача
+      </button>
+    </div>
+
+  </div>
+  <div *ngIf="selectedUser">
+    <div class="form-position">
+      <label> Імʼя користувача: </label>
+      <input class="form-control" type="text" [(ngModel)]="selectedUser.name"/>
+    </div>
+    <div class="form-position">
+      <label> Email користувача: </label>
+      <input class="form-control" type="text" [(ngModel)]="selectedUser.email"/>
+    </div>
+    <button class="btn btn-update" (click)="updateUser()">
+      Оновити
+    </button>
+  </div>
+</div>
+
+<div class="created-user">
+  <h3 class="title">
+    Створити користувача
+  </h3>
+  <div class="accordion">
+    <div class="trigger">
+      <input type="checkbox" id="checkbox-2" name="checkbox-2"/>
+      <label for="checkbox-2" class="checkbox">
+        <p>
+          Створити Обліковий запис <i></i>
+        </p>
+      </label>
+      <div class="content">
+        <div>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name"></label>
+              <input class="form-control" type="text" value placeholder="Імʼя"
+                     id="userName" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+              <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">
+                  <p>
+                    Поле Імʼя не заповнене
+                  </p>
+                </div>
+              </div>
+              <label for="email"></label>
+              <input id="userEmail" class="form-control" type="text" value placeholder="Email"
+                     formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              <div *ngIf="submitted && f.email?.errors" class="invalid-feedback">
+                <div *ngIf="f.email?.errors.required">
+                  <p>
+                    Поле Email не нзаповнене
+                  </p>
+                </div>
+                <div *ngIf="f.email?.errors.email">
+                  <p>
+                    Поле Email введено некоректно
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password"></label>
+              <input class="form-control" [type]="hide ? 'password' : 'text'" value placeholder="Пароль"
+                     formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">
+                  <p>
+                    Поле Пароль не заповнене
+                  </p>
+                </div>
+                <div *ngIf="f.password.errors.minlength">
+                  <p>
+                    Пароль має бути не менше 6 символів
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="bloc-button">
+              <button [disabled]="" class="btn btn-register">
+                <p>
+                  Створити обліковий запис
+                </p>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
